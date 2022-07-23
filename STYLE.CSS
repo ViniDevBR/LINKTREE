@@ -5,19 +5,18 @@
   font-size: 62.5%;
   --primary-color: #2323ff;
   --secondary-color: #000000;
-  --bgcolor-themes: #808080be;
+  --bgcolor-nav: #808080be;
   --bghover-color: #0000cc;
   --border-theme: #525252;
   --text-color1: #ffffff;
   --text-color2: #000000;
-  --themes1-bgcolor: #c5c5c5cc;
-  --themes2-bgcolor: #242424cc;
-  --themes3-bgcolor: #00004ecc;
-  --themes4-bgcolor: #300028cc;
+  --theme1-bgcolor: #c5c5c5cc;
+  --theme2-bgcolor: #242424cc;
+  --theme3-bgcolor: #00004ecc;
+  --theme4-bgcolor: #300028cc;
   --border-color: #b8b8b8;
-  --pinkDark-bg-theme: #790265;
-  --dark-bg-theme: #2e2e2e;
-  
+  --PC-bluedark-hover: #1818c7;
+  --PC-pinkdark-hover: #790265;
 }
 * {
   padding: 0;
@@ -113,7 +112,7 @@ nav {
   width: 100%;
   padding-top: 1rem;
   z-index: 1;
-  background-color: var(--bgcolor-themes);
+  background-color: var(--bgcolor-nav);
   color: var(--text-color1);
   height: 100%;
   backdrop-filter: blur(5px);
@@ -130,16 +129,16 @@ nav .theme{
   transition: 0.5s;
 }
 nav .theme:nth-child(1):hover{
-  background-color: var(--themes1-bgcolor);
+  background-color: var(--theme1-bgcolor);
 }
 nav .theme:nth-child(2):hover{
-  background-color: var(--themes2-bgcolor);
+  background-color: var(--theme2-bgcolor);
 }
 nav .theme:nth-child(3):hover{
-  background-color: var(--themes3-bgcolor);
+  background-color: var(--theme3-bgcolor);
 }
 nav .theme:nth-child(4):hover{
-  background-color: var(--themes4-bgcolor);
+  background-color: var(--theme4-bgcolor);
 }
 .on{
   position: fixed;
@@ -193,7 +192,9 @@ address {
   background-color: var(--dark-primary-color);
   --dark-primary-color: #000000;
   --dark-secondary-color: #304fff;
-  --dark-secondary-hover-color: #2323ff;
+  --dark-secondary-hover-color: #1818c7;
+  --dark-bg-theme: #2e2e2e;
+  --dark-theme4-hover: #790265;
 }
 .dark header h1,
 .dark header p,
@@ -223,7 +224,9 @@ address {
   --bluedark-primary-color: #00004e;
   --bluedark-secondary-color: #304fff;
   --bluedark-secondary-hover-color: #1818c7;
-  --bluedark-bgcolor-themes: #3c47e488;
+  --bluedark-bgcolor-nav: #3c47e488;
+  --bluedark-theme2-hover: #000000;
+  --bluedark-theme4-hover: #790265;
 }
 .blueDark header h1,
 .blueDark header p,
@@ -243,7 +246,7 @@ address {
   border: 3px solid var(--bluedark-secondary-color);
 }
 .blueDark nav{
-  background-color: var(--bluedark-bgcolor-themes);
+  background-color: var(--bluedark-bgcolor-nav);
 }
 .blueDark footer svg{
   fill: var(--bluedark-secondary-color);
@@ -256,7 +259,10 @@ address {
   --pinkdark-primary-color: #300028;
   --pinkdark-secondary-color: #96007d;
   --pinkdark-secondary-hover-color: #640154;
-  --pinkdark-bgcolor-themes: #63315a88;
+  --pinkdark-bgcolor-nav: #63315a88;
+  --pinkdark-theme2-hover: #000000;
+  --pinkdark-theme3-hover: #1818c7;
+  --pinkdark-theme4-hover: #790265;
 }
 .pinkDark .lineA,
 .pinkDark .lineB,
@@ -276,7 +282,7 @@ address {
   color: var(--text-color1);
 }
 .pinkDark nav{
-  background-color: var(--pinkdark-bgcolor-themes);
+  background-color: var(--pinkdark-bgcolor-nav);
 }
 .pinkDark footer svg{
   fill: var(--pinkdark-secondary-color);
@@ -333,21 +339,21 @@ address {
     transition: opacity 0.5s, background 0.5s;
   }
   nav .theme:nth-child(1):hover{
-    background-color: var(--themes1-bgcolor);
+    background-color: var(--theme1-bgcolor);
     cursor: pointer;
   }
   nav .theme:nth-child(2):hover{
-    background-color: var(--dark-primary-color);
+    background-color: var(--secondary-color);
     color: var(--text-color1);
     cursor: pointer;
   }
   nav .theme:nth-child(3):hover{
-    background-color: #1818c7;
+    background-color: var(--PC-bluedark-hover);
     color: var(--text-color1);
     cursor: pointer;
   }
   nav .theme:nth-child(4):hover{
-    background-color: #790265;
+    background-color: var(--PC-pinkdark-hover);
     color: var(--text-color1);
     cursor: pointer;
   }
@@ -381,12 +387,13 @@ address {
   }
   .dark .theme:nth-child(2):hover{
     background-color: var(--dark-bg-theme);
+    color: var(--text-color1);
   }
   .dark .theme:nth-child(3):hover{
-    background-color: var(--bluedark-secondary-hover-color);
+    background-color: var(--dark-secondary-hover-color);
   }
   .dark .theme:nth-child(4):hover{
-    background-color: var(--pinkDark-bg-theme);
+    background-color: var(--dark-theme4-hover);
   }
 /*////////////////////// BLUEDARK THEME ////////////////////////////*/
   .blueDark .theme{
@@ -403,13 +410,13 @@ address {
     background-color: transparent;
   }
   .blueDark .theme:nth-child(2):hover{
-    background-color: var(--dark-primary-color);
+    background-color: var(--bluedark-theme2-hover);
   }
   .blueDark .theme:nth-child(3):hover{
     background-color: var(--bluedark-secondary-hover-color);
   }
   .blueDark .theme:nth-child(4):hover{
-    background-color: var(--pinkDark-bg-theme);
+    background-color: var(--bluedark-theme4-hover);
   }
   /*//////////////////////// PINK DARK THEME ///////////////////*/
   .pinkDark .button-themes{
@@ -425,13 +432,13 @@ address {
     background-color: transparent;
   }
   .pinkDark .theme:nth-child(2):hover{
-    background-color: var(--dark-primary-color);
+    background-color: var(--pinkdark-theme2-hover);
   }
   .pinkDark .theme:nth-child(3):hover{
-    background-color: var(--bluedark-secondary-hover-color);
+    background-color: var(--pinkdark-theme3-hover);
   }
   .pinkDark .theme:nth-child(4):hover{
-    background-color: var(--pinkDark-bg-theme);
+    background-color: var(--pinkdark-theme4-hover);
   }
 }
 /*//////////////////////////////////////////////////////
