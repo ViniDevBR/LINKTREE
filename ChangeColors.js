@@ -1,6 +1,6 @@
 const bodyBackGround = document.querySelector('body')
 const colors = document.querySelector('input[type=color]')
-const menuOpen = document.querySelector('.themes')
+const menuOpen = document.querySelector('nav')
 const themesOpen = document.querySelector('.button-themes')
 const hamburguerOpen = document.querySelector('.hamburguer')
 const darkTheme = document.querySelector('#dark')

@@ -1,7 +1,6 @@
 /*///////////////////////////////////////////////////////// 
-                   REGRAS
+                   RULES
 //////////////////////////////////////////////////////////*/
-
 :root {
   font-size: 62.5%;
   --primary-color: #2323ff;
@@ -10,17 +9,21 @@
   --bghover-color: #0000cc;
   --border-theme: #525252;
   --text-color1: #ffffff;
+  --text-color2: #000000;
   --themes1-bgcolor: #c5c5c5cc;
   --themes2-bgcolor: #242424cc;
   --themes3-bgcolor: #00004ecc;
   --themes4-bgcolor: #300028cc;
+  --border-color: #b8b8b8;
+  --pinkDark-bg-theme: #790265;
+  --dark-bg-theme: #2e2e2e;
+  
 }
 * {
   padding: 0;
   margin: 0;
 }
-a,
-li {
+a, li {
   font-size: 1.7rem;
   text-decoration: none;
 }
@@ -29,26 +32,23 @@ li {
 }
 body{
   transition: background 0.5s;
-  
 }
-.box {
+.container {
   position: relative;
   width: 100%; 
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* overflow-x: hidden; */
   font-family: 'Comfortaa', cursive;
 }
 /*///////////////////////////////////////////////////////// 
-            MENU HAMBURGUER
+                   HAMBURGUER MENU
 //////////////////////////////////////////////////////////*/
 .hamburguer {
   position: absolute;
   z-index: 3;
-  padding-right: 2.5rem;
-  margin-top: 2rem;
+  padding: 2rem 2.5rem 0 0;
   width: 3rem;
   right: 0;
   transition: 0.5s;
@@ -79,58 +79,12 @@ body{
   transform: rotate(45deg) translate(0px, -11px);  
 }
 /*//////////////////////////////////////////////////////// 
-              THEMES MENU
+                       HEADER
 /////////////////////////////////////////////////////////*/
 .button-themes{
   display: none;
 }
-.themes {
-  display: flex;
-  flex-direction: column;
-  position: fixed; 
-  right: -100%;
-  width: 100%;
-  z-index: 2;
-  padding-top: 1.5rem;
-  background-color: var(--bgcolor-themes);
-  color: var(--text-color1);
-  height: calc(100vh);
-  backdrop-filter: blur(5px);
-  transition: right 0.5s, background 0.5s;
-}
-.themes h3{
-  border-bottom: 1px solid var(--border-theme);
-  padding-left: 2rem;
-  padding-bottom: 1rem;
-  font-size: 3rem;
-}
-.themes .theme{
-  border-bottom:1px solid var(--border-theme);
-  padding-block: 2rem;
-  padding-left: 2rem;
-  transition: 0.5s;
-}
-.themes .theme:nth-child(1):hover{
-  background-color: var(--themes1-bgcolor);
-}
-.themes .theme:nth-child(2):hover{
-  background-color: var(--themes2-bgcolor);
-}
-.themes .theme:nth-child(3):hover{
-  background-color: var(--themes3-bgcolor);
-}
-.themes .theme:nth-child(4):hover{
-  background-color: var(--themes4-bgcolor);
-}
-.on{
-  position: fixed;
-  right: 0%;
-}
-/*////////////////////////////////////////////////////////// 
-                HEADER
-/////////////////////////////////////////////////////////*/
 header {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,13 +92,58 @@ header {
 header img {
   width: 15rem;
   height: 15rem;
+  margin-top: 2rem;
   padding: 0.2rem;
   border: 3px solid var(--primary-color);
   border-radius: 50%;
+  transition: border 0.5s;
 }
 header h1 {
   font-size: 2.5rem;
   margin-top: 0.5rem;
+}
+/*//////////////////////////////////////////////////////// 
+                       NAV
+/////////////////////////////////////////////////////////*/
+nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed; 
+  right: -100%;
+  width: 100%;
+  padding-top: 1rem;
+  z-index: 1;
+  background-color: var(--bgcolor-themes);
+  color: var(--text-color1);
+  height: 100%;
+  backdrop-filter: blur(5px);
+  transition: right 0.5s, background 0.5s;
+}
+nav h3{
+  border-bottom: 1px solid var(--border-theme);
+  padding: 0 0 1rem 2rem;
+  font-size: 3rem;
+}
+nav .theme{
+  border-bottom:1px solid var(--border-theme);
+  padding: 2rem 0 2rem 2rem;
+  transition: 0.5s;
+}
+nav .theme:nth-child(1):hover{
+  background-color: var(--themes1-bgcolor);
+}
+nav .theme:nth-child(2):hover{
+  background-color: var(--themes2-bgcolor);
+}
+nav .theme:nth-child(3):hover{
+  background-color: var(--themes3-bgcolor);
+}
+nav .theme:nth-child(4):hover{
+  background-color: var(--themes4-bgcolor);
+}
+.on{
+  position: fixed;
+  right: 0%;
 }
 /*//////////////////////////////////////////////////////// 
                    MAIN
@@ -154,7 +153,7 @@ main {
   margin-top: 2rem;
   width: 75%;
 }
-ul li a {
+li a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,7 +165,7 @@ ul li a {
   height: 4rem;
   transition: background 0.5s;
 }
-ul li a:hover {
+li a:hover {
   background-color: var(--bghover-color);
 }
 /*///////////////////////////////////////////////////////// 
@@ -176,15 +175,16 @@ footer {
   display: flex;
   position: relative;
   bottom: 0;
-  margin-top: 1.1rem;
+  margin-top: 0.5rem;
   transition: fill 0.5s;
 }
 footer svg{
-  fill: #0000cc;
+  fill: var(--bghover-color);
   transition: 0.5s;
 }
 address {
   padding-left: 0.4rem;
+  font-style: normal;
 }
 /*//////////////////////////////////////////////////////
                   DARK THEME
@@ -203,10 +203,10 @@ address {
 .dark .lineA,
 .dark .lineB,
 .dark .lineC,
-.dark ul li a{
+.dark li a{
   background-color: var(--dark-secondary-color);
 }
-.dark ul li a:hover{
+.dark li a:hover{
   background-color: var(--dark-secondary-hover-color);
 }
 .dark header img{
@@ -215,7 +215,6 @@ address {
 .dark footer svg{
   fill: var(--dark-secondary-color);
 }
-
 /*//////////////////////////////////////////////////////
                 BLUE  DARK THEME
 ////////////////////////////////////////////////////////*/
@@ -225,7 +224,6 @@ address {
   --bluedark-secondary-color: #304fff;
   --bluedark-secondary-hover-color: #1818c7;
   --bluedark-bgcolor-themes: #3c47e488;
-
 }
 .blueDark header h1,
 .blueDark header p,
@@ -235,22 +233,21 @@ address {
 .blueDark .lineA,
 .blueDark .lineB,
 .blueDark .lineC,
-.blueDark ul li a{
+.blueDark li a{
   background-color: var(--bluedark-secondary-color);
 }
-.blueDark ul li a:hover{
+.blueDark li a:hover{
   background-color: var(--bluedark-secondary-hover-color);
 }
 .blueDark header img{
   border: 3px solid var(--bluedark-secondary-color);
 }
-.blueDark .themes{
+.blueDark nav{
   background-color: var(--bluedark-bgcolor-themes);
 }
 .blueDark footer svg{
   fill: var(--bluedark-secondary-color);
 }
-
 /*//////////////////////////////////////////////////////
                 PINK DARK THEME
 ////////////////////////////////////////////////////////*/
@@ -264,10 +261,10 @@ address {
 .pinkDark .lineA,
 .pinkDark .lineB,
 .pinkDark .lineC,
-.pinkDark ul li a{
+.pinkDark li a{
   background-color: var(--pinkdark-secondary-color);
 }
-.pinkDark ul li a:hover{
+.pinkDark li a:hover{
   background-color: var(--pinkdark-secondary-hover-color);
 }
 .pinkDark header img{
@@ -278,35 +275,37 @@ address {
 .pinkDark footer{
   color: var(--text-color1);
 }
-.pinkDark .themes{
+.pinkDark nav{
   background-color: var(--pinkdark-bgcolor-themes);
 }
 .pinkDark footer svg{
   fill: var(--pinkdark-secondary-color);
 }
-
+/*//////////////////////////////////////////////////////
+                     MEDIA SCREEN 720
+////////////////////////////////////////////////////////*/
 @media (min-width: 720px){
   .hamburguer,
-  .themes h3{
+  nav h3{
     display: none;
   }
-  .box{
-    width: 70%;
+  .container{
+    width: 90%;
   }
-  .themes {
+  .container main{
+    width: 62%;
+  }
+  /*////////////////////// NAV ////////////////////////////*/
+  nav {
     display: flex;
     flex-direction: column;
     position: absolute; 
     right: 0; 
     width: 10rem;
-    z-index: 0;
-    padding-top: 2rem;
-    padding-right: 2rem;
+    padding: 2rem 2rem 0 0;
     background-color: transparent;
-    color: black;
-    height: auto;
+    color: var(--text-color2);
     backdrop-filter: none;
-    transition: 0.5s;
   }
   .button-themes{
     display: flex;
@@ -316,65 +315,61 @@ address {
     height: 4rem;
     font-family: 'Comfortaa', cursive;
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--text-color1);
     padding-inline: 1rem;
     border: none;
     border-radius: 10px;
     transition: background 0.5s;
   }
   .button-themes:hover{
-    background-color: #0000cc;
+    background-color: var(--bghover-color);
   }
-  .themes .theme{
+  nav .theme{
     visibility: collapse;
     opacity: 0;
-    border:1px solid #b8b8b8;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding-block: 1rem;
-    padding-left: 1rem;
-    transition: opacity 0.5s ease-in-out, background 0.5s;
+    padding: 1rem 0 1rem 1rem;
+    transition: opacity 0.5s, background 0.5s;
   }
-  .themes .theme:nth-child(1):hover{
+  nav .theme:nth-child(1):hover{
     background-color: var(--themes1-bgcolor);
     cursor: pointer;
   }
-  .themes .theme:nth-child(2):hover{
-    background-color: #000000;
-    color: #ffffff;
+  nav .theme:nth-child(2):hover{
+    background-color: var(--dark-primary-color);
+    color: var(--text-color1);
     cursor: pointer;
   }
-  .themes .theme:nth-child(3):hover{
+  nav .theme:nth-child(3):hover{
     background-color: #1818c7;
-    color: #ffffff;
+    color: var(--text-color1);
     cursor: pointer;
   }
-  .themes .theme:nth-child(4):hover{
+  nav .theme:nth-child(4):hover{
     background-color: #790265;
-    color: #ffffff;
+    color: var(--text-color1);
     cursor: pointer;
   }
   .on{
     position: absolute;
     right: 0%;
-    transition: opacity 0.5s;
   }
   .on .theme{
     visibility: visible;
     opacity: 1;
-    border:1px solid #b8b8b8;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding-block: 1rem;
-    padding-left: 1rem;
+    padding: 1rem 0 1rem 1rem;
   }
-  .themes svg{
+  nav svg{
     transition: transform 0.5s;
   }
   .on svg{
     transform: rotateX(180deg) translateY(-4px);
-    transition: transform 0.5s ease-in-out;
   }
-  
-  .dark .theme{
+  /*////////////////////// DARK THEME ////////////////////////////*/
+  .dark nav{
     color: var(--text-color1);
   }
   .dark .button-themes{
@@ -385,17 +380,15 @@ address {
     background-color: var(--dark-secondary-hover-color);
   }
   .dark .theme:nth-child(2):hover{
-    background-color: #2e2e2e;
+    background-color: var(--dark-bg-theme);
   }
   .dark .theme:nth-child(3):hover{
-    background-color: #1818c7;
+    background-color: var(--bluedark-secondary-hover-color);
   }
   .dark .theme:nth-child(4):hover{
-    background-color: #790265;
+    background-color: var(--pinkDark-bg-theme);
   }
-
-
-
+/*////////////////////// BLUEDARK THEME ////////////////////////////*/
   .blueDark .theme{
     color: var(--text-color1);
   }
@@ -406,21 +399,19 @@ address {
   .blueDark .button-themes:hover{
     background-color: var(--bluedark-secondary-hover-color);
   }
-  .blueDark .themes{
+  .blueDark nav{
     background-color: transparent;
   }
   .blueDark .theme:nth-child(2):hover{
-    background-color: #000000;
+    background-color: var(--dark-primary-color);
   }
   .blueDark .theme:nth-child(3):hover{
-    background-color: #1818c7;
+    background-color: var(--bluedark-secondary-hover-color);
   }
   .blueDark .theme:nth-child(4):hover{
-    background-color: #790265;
+    background-color: var(--pinkDark-bg-theme);
   }
-  /*//////////////////////////////////////////////////////
-                  PINK DARK THEME
-  ////////////////////////////////////////////////////////*/
+  /*//////////////////////// PINK DARK THEME ///////////////////*/
   .pinkDark .button-themes{
     background-color: var(--pinkdark-secondary-color);
   }
@@ -430,21 +421,137 @@ address {
   .pinkDark .theme{
     color: var(--text-color1);
   }
-  .pinkDark .themes{
+  .pinkDark nav{
     background-color: transparent;
   }
   .pinkDark .theme:nth-child(2):hover{
-    background-color: #000000;
+    background-color: var(--dark-primary-color);
   }
   .pinkDark .theme:nth-child(3):hover{
-    background-color: #1818c7;
+    background-color: var(--bluedark-secondary-hover-color);
   }
   .pinkDark .theme:nth-child(4):hover{
-    background-color: #790265;
+    background-color: var(--pinkDark-bg-theme);
   }
 }
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 1024
+////////////////////////////////////////////////////////*/
 @media (min-width: 1024px){
-  .box{
-    width: 50%;
+  .container{
+    width: 80%;
+  }
+  .container main{
+    width: 70%;
+  }
+}
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 1440
+////////////////////////////////////////////////////////*/
+@media (min-width: 1400px){
+  header img {
+    width: 25rem;
+    height: 25rem;
+    margin-top: 4rem;
+    padding: 0.4rem;
+  }
+  header h1 {
+    font-size: 4rem;
+    margin-top: 0.5rem;
+  }
+  header p{
+    font-size: 2rem;
+  }
+  /*//////////////////////// NAV ///////////////////*/
+  nav {
+    width: 15rem;
+  }
+  nav .theme{
+    font-size: 2.5rem;
+  }
+  .button-themes{
+    margin-top: 2rem;
+    font-size: 3rem;
+    height: 5rem;
+  }
+  nav svg{
+    transition: transform 0.5s;
+    transform: scale(1.5);
+  }
+  .on svg{
+    transform: rotateX(180deg) translateY(-4px) scale(1.5);
+  }
+  /*//////////////////////// MAIN ///////////////////*/
+  main li a{
+    font-size: 3rem;
+    height: 6rem;
+  }
+  main svg{
+    transform: scale(1.5) translateY(-2px);
+  }
+  /*//////////////////////// FOOTER ///////////////////*/
+  footer{
+    font-size: 2rem;
+  }
+  footer svg{
+    width: 30px;
+    transform: scale(1.5) translateY(2px);
+  }
+}
+/*//////////////////////////////////////////////////////
+                    MEDIA SCREEN 2550
+////////////////////////////////////////////////////////*/
+@media (min-width: 2550px){
+  header img {
+    width: 40rem;
+    height: 40rem;
+    margin-top: 4rem;
+    padding: 0.4rem;
+  }
+  header h1 {
+    font-size: 6rem;
+    margin-top: 0.5rem;
+  }
+  header p{
+    font-size: 3rem;
+  }
+  /*//////////////////////// NAV ///////////////////*/
+  nav {
+    width: 25rem;
+  }
+  nav .theme{
+    font-size: 4.5rem;
+  }
+  .button-themes{
+    font-size: 5rem;
+    height: 8rem;
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+  nav svg{
+    width: 40px;
+    transition: transform 0.5s;
+    transform: scale(2);
+  }
+  .on svg{
+    transform: rotateX(180deg) translateY(-4px) scale(2);
+  }
+  /*//////////////////////// MAIN ///////////////////*/
+  main li a{
+    font-size: 5rem;
+    height: 9rem;
+    border-radius: 50px;
+  }
+  main svg{
+    transform: scale(2.5) translateY(-4px);
+    width: 30px;
+  }
+  /*//////////////////////// FOOTER ///////////////////*/
+  footer{
+    font-size: 3rem;
+  }
+  footer svg{
+    width: 50px;
+    transform: scale(2) translateY(6px);
   }
 }
