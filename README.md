@@ -1,24 +1,30 @@
 # LINKTREE
-This is the version 1 of my linktree. In future will have some updates.
 
-JavaScript
+## 💻 Project
 
-• Easily understandable names
+This project has the main goal to develop my linktree.
+Additionally: Themes.
 
-• Everything organized
+## 🚀 Tecnologies
 
-• Simple code
+- [x] HTML
+  Semantic
 
-HTML
+  Organized
 
-• Semantic
+- [x] CSS
+  Variables names easily to understand
 
-• Organized
+  320px to 2560px screens
+- [x] JavaScript
+  Easily understandable names
 
-• SEO optimization
+  Everything organized
 
-CSS
+  Simple code
 
-• Variables names easily to understand
+## 📔 Table of Contents
 
-• 320px to 2560px screens
+- [x] Global variables inserted in css on `:root`
+- [x] Integration with Google Fonts
+

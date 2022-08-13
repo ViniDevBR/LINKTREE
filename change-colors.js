@@ -1,5 +1,4 @@
 const bodyBackGround = document.querySelector('body')
-const colors = document.querySelector('input[type=color]')
 const menuOpen = document.querySelector('nav')
 const themesOpen = document.querySelector('.button-themes')
 const hamburguerOpen = document.querySelector('.hamburguer')
@@ -35,7 +34,7 @@ lightTheme.addEventListener('click', () =>{
 themesOpen.addEventListener('click', () =>{
   menuOpen.classList.toggle('on')
 })
-console.log('Links Vinicius - version 1.0 | Me contrata')
+console.log('Links Vinicius - version 1.0 | Open to Work')
 
 
 
