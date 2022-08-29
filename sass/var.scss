@@ -36,3 +36,33 @@ $pinkdark-bgcolor-nav: #63315a88;
 $pinkdark-theme2-hover: #000000;
 $pinkdark-theme3-hover: #1818c7;
 $pinkdark-theme4-hover: #790265;
+
+:root {
+  font-size: 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Comfortaa', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+a, li {
+  font-size: 1.7rem;
+}
+@mixin flex ($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin flex2 ($display, $direction, $align) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align;
+}
+@mixin flex3 ($display, $direction, $align, $justify) {
+  display: $display;
+  justify-content: $justify;
+  flex-direction: $direction;
+  align-items: $align;
+}
