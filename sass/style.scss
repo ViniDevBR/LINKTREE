@@ -1,0 +1,601 @@
+@import './var.scss';
+
+body {
+  transition: background 0.5s;
+}
+.container {
+  @include flex2(flex, column, center);
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+/*///////////////////////////////////////////////////////// 
+                   HAMBURGUER MENU
+//////////////////////////////////////////////////////////*/
+.hamburguer {
+  position: absolute;
+  z-index: 3;
+  padding: 2rem 2.5rem 0 0;
+  width: 3rem;
+  right: 0;
+  transition: 0.5s;
+}
+.lineA,
+.lineC {
+  margin-top: 2px;
+  background-color: $primary-color;
+  border-radius: 5px;
+  height: 5px;
+  transition: 0.5s;
+}
+.lineB {
+  margin-left: 30%;
+  background-color: $primary-color;
+  border-radius: 5px;
+  height: 4.5px;
+  margin-block: 3px;
+  transition: 0.5s;
+}
+.active {
+  .lineA {
+    transform: rotate(-45deg) translate(0px, 11px);
+  }
+  .lineB {
+    transform: translate(1px, -2px) rotate(45deg);
+  }
+  .lineC {
+    transform: rotate(45deg) translate(0px, -11px);
+  }
+}
+
+/*//////////////////////////////////////////////////////// 
+                       HEADER
+/////////////////////////////////////////////////////////*/
+.button-themes {
+  display: none;
+}
+header {
+  @include flex2(flex, column, center);
+
+  img {
+    width: 15rem;
+    height: 15rem;
+    margin-top: 2rem;
+    padding: 0.2rem;
+    border: 3px solid $primary-color;
+    border-radius: 50%;
+    transition: border 0.5s;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 0.5rem;
+  }
+  p {
+    font-weight: 600;
+  }
+}
+
+/*//////////////////////////////////////////////////////// 
+                       NAV
+/////////////////////////////////////////////////////////*/
+nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: -100%;
+  width: 100%;
+  padding-top: 1.8rem;
+  z-index: 1;
+  background-color: $bgcolor-nav;
+  color: $text-color1;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  transition: right 0.5s, background 0.5s;
+
+  h3 {
+    border-bottom: 1px solid $border-theme;
+    padding: 0 0 1rem 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .theme {
+    border-bottom: 1px solid $border-theme;
+    padding: 2rem 0 2rem 2rem;
+    transition: 0.5s;
+    font-weight: 600;
+
+    &:nth-child(1):hover {
+      background-color: $theme1-bgcolor;
+    }
+    &:nth-child(2):hover {
+      background-color: $theme2-bgcolor;
+    }
+    &:nth-child(3):hover {
+      background-color: $theme3-bgcolor;
+    }
+    &:nth-child(4):hover {
+      background-color: $theme4-bgcolor;
+    }
+  }
+}
+.on {
+  position: fixed;
+  right: 0%;
+}
+
+/*//////////////////////////////////////////////////////// 
+                   MAIN
+/////////////////////////////////////////////////////////*/
+/// 
+main {
+  text-align: center;
+  margin-top: 2rem;
+  width: 75%;
+}
+li a {
+  @include flex3(flex, column, center, center);
+  background-color: $primary-color;
+  color: $text-color1;
+  font-weight: 500;
+  border-radius: 30px;
+  margin-bottom: 1.5rem;
+  height: 4rem;
+  transition: background 0.5s;
+
+  &:hover {
+    background-color: $bghover-color;
+  }
+}
+
+/*///////////////////////////////////////////////////////// 
+                FOOTER
+/////////////////////////////////////////////////////////*/
+
+footer {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  margin-top: 0.5rem;
+  transition: fill 0.5s;
+  font-weight: 600;
+
+  svg {
+    fill: $bghover-color;
+    transition: 0.5s;
+  }
+  address {
+    padding-left: 0.4rem;
+    font-style: normal;
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                  DARK THEME
+////////////////////////////////////////////////////////*/
+.dark {
+  background-color: $dark-primary-color;
+
+  header h1,
+  header p,
+  footer {
+    color: $text-color1;
+  }
+  .lineA,
+  .lineB,
+  .lineC,
+  li a {
+    background-color: $dark-secondary-color;
+  }
+  li a:hover {
+    background-color: $dark-secondary-hover-color;
+  }
+  header img {
+    border: 3px solid $dark-secondary-color;
+  }
+  footer svg {
+    fill: $dark-secondary-color;
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                BLUE  DARK THEME
+////////////////////////////////////////////////////////*/
+.blueDark {
+  background-color: $bluedark-primary-color;
+
+  header h1,
+  header p,
+  footer {
+    color: $text-color1;
+  }
+  .lineA,
+  .lineB,
+  .lineC,
+  li a {
+    background-color: $bluedark-secondary-color;
+  }
+  li a:hover {
+    background-color: $bluedark-secondary-hover-color;
+  }
+  header img {
+    border: 3px solid $bluedark-secondary-color;
+  }
+  nav {
+    background-color: $bluedark-bgcolor-nav;
+  }
+  footer svg {
+    fill: $bluedark-secondary-color;
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                PINK DARK THEME
+////////////////////////////////////////////////////////*/
+.pinkDark {
+  background-color: $pinkdark-primary-color;
+
+  .lineA,
+  .lineB,
+  .lineC,
+  li a {
+    background-color: $pinkdark-secondary-color;
+  }
+  li a:hover {
+    background-color: $pinkdark-secondary-hover-color;
+  }
+  header img {
+    border: 3px solid $pinkdark-secondary-color;
+  }
+  header h1,
+  header p,
+  footer {
+    color: $text-color1;
+  }
+  nav {
+    background-color: $pinkdark-bgcolor-nav;
+  }
+  footer svg {
+    fill: $pinkdark-secondary-color;
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                     MEDIA SCREEN 720
+////////////////////////////////////////////////////////*/
+@media (min-width: 720px) {
+  .hamburguer,
+  nav h3 {
+    display: none;
+  }
+  .container {
+    width: 90%;
+
+    main {
+      width: 62%;
+    }
+  }
+  /*////////////////////// NAV ////////////////////////////*/
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    width: 11rem;
+    padding: 2rem 2rem 0 0;
+    background-color: transparent;
+    color: $text-color2;
+    backdrop-filter: none;
+  }
+  .button-themes {
+    @include flex(flex, center, center);
+    font-size: 1.7rem;
+    height: 4rem;
+    background-color: $primary-color;
+    color: $text-color1;
+    padding-inline: 1rem;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.5s;
+
+    &:hover {
+      background-color: $bghover-color;
+    }
+  }
+  nav {
+    .theme {
+      visibility: collapse;
+      opacity: 0;
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      padding: 1rem 0 1rem 1rem;
+      transition: opacity 0.5s, background 0.5s;
+
+      &:nth-child(1):hover {
+        background-color: $theme1-bgcolor;
+        cursor: pointer;
+      }
+      &:nth-child(2):hover {
+        background-color: $secondary-color;
+        color: $text-color1;
+        cursor: pointer;
+      }
+      &:nth-child(3):hover {
+        background-color: $PC-bluedark-hover;
+        color: $text-color1;
+        cursor: pointer;
+      }
+      &:nth-child(4):hover {
+        background-color: $PC-pinkdark-hover;
+        color: $text-color1;
+        cursor: pointer;
+      }
+    }
+    svg {
+      transition: transform 0.5s;
+    }
+  }
+  .on {
+    position: absolute;
+    right: 0%;
+    .theme {
+      visibility: visible;
+      opacity: 1;
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      padding: 1rem 0 1rem 1rem;
+    }
+    svg {
+      transform: rotateX(180deg) translateY(-2px);
+    }
+  }
+
+  /*////////////////////// DARK THEME ////////////////////////////*/
+  .dark {
+    nav {
+      color: $text-color1;
+    }
+    .button-themes {
+      background-color: $dark-secondary-color;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: $dark-secondary-hover-color;
+      }
+    }
+    .theme {
+      &:nth-child(2):hover {
+        background-color: $dark-bg-theme;
+        color: $text-color1;
+      }
+      &:nth-child(3):hover {
+        background-color: $dark-secondary-hover-color;
+      }
+      &:nth-child(4):hover {
+        background-color: $dark-theme4-hover;
+      }
+    }
+  }
+
+  /*////////////////////// BLUEDARK THEME ////////////////////////////*/
+  .blueDark {
+    .theme {
+      color: $text-color1;
+    }
+    .button-themes {
+      background-color: $bluedark-secondary-color;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: $bluedark-secondary-hover-color;
+      }
+    }
+    nav {
+      background-color: transparent;
+    }
+    .theme {
+      &:nth-child(2):hover {
+        background-color: $bluedark-theme2-hover;
+      }
+      &:nth-child(3):hover {
+        background-color: $bluedark-secondary-hover-color;
+      }
+      &:nth-child(4):hover {
+        background-color: $bluedark-theme4-hover;
+      }
+    }
+  }
+  /*//////////////////////// PINK DARK THEME ///////////////////*/
+  .pinkDark {
+    .button-themes {
+      background-color: $pinkdark-secondary-color;
+
+      &:hover {
+        background-color: $pinkdark-secondary-hover-color;
+      }
+    }
+    .theme {
+      color: $text-color1;
+
+      &:nth-child(2):hover {
+        background-color: $pinkdark-theme2-hover;
+      }
+      &:nth-child(3):hover {
+        background-color: $pinkdark-theme3-hover;
+      }
+      &:nth-child(4):hover {
+        background-color: $pinkdark-theme4-hover;
+      }
+    }
+    nav {
+      background-color: transparent;
+    }
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 850
+////////////////////////////////////////////////////////*/
+@media (min-width: 850px) {
+  .container {
+    width: 80%;
+
+    main {
+      width: 60%;
+    }
+  }
+}
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 950
+////////////////////////////////////////////////////////*/
+@media (min-width: 950px) {
+  .container {
+    width: 70%;
+
+    main {
+      width: 60%;
+    }
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 1024
+////////////////////////////////////////////////////////*/
+@media (min-width: 1024px) {
+  .container {
+    width: 65%;
+
+    main {
+      width: 62%;
+    }
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                   MEDIA SCREEN 1440
+////////////////////////////////////////////////////////*/
+@media (min-width: 1400px) {
+  header {
+    img {
+      width: 25rem;
+      height: 25rem;
+      margin-top: 4rem;
+      padding: 0.4rem;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-top: 0.5rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+  }
+  /*//////////////////////// NAV ///////////////////*/
+  nav {
+    width: 15rem;
+
+    .theme {
+      font-size: 2.5rem;
+    }
+    svg {
+      transition: transform 0.5s;
+      transform: scale(1.5);
+    }
+  }
+  .button-themes {
+    margin-top: 2rem;
+    font-size: 3rem;
+    height: 5rem;
+  }
+  .on svg {
+    transform: rotateX(180deg) translateY(-4px) scale(1.5);
+  }
+  /*//////////////////////// MAIN ///////////////////*/
+  main {
+    li a {
+      font-size: 3rem;
+      height: 6rem;
+    }
+    svg {
+      transform: scale(1.5) translateY(-2px);
+    }
+    .email {
+      transform: scale(1.5) translateY(-3px);
+    }
+  }
+  /*//////////////////////// FOOTER ///////////////////*/
+  footer {
+    font-size: 2rem;
+
+    svg {
+      width: 30px;
+      transform: scale(1.5) translateY(2px);
+    }
+  }
+}
+
+/*//////////////////////////////////////////////////////
+                    MEDIA SCREEN 2550
+////////////////////////////////////////////////////////*/
+@media (min-width: 2550px) {
+  header {
+    img {
+      width: 40rem;
+      height: 40rem;
+      margin-top: 4rem;
+      padding: 0.4rem;
+    }
+    h1 {
+      font-size: 6rem;
+      margin-top: 0.5rem;
+    }
+    p {
+      font-size: 3rem;
+    }
+  }
+  /*//////////////////////// NAV ///////////////////*/
+  nav {
+    width: 25rem;
+
+    .theme {
+      font-size: 4.5rem;
+    }
+    svg {
+      width: 40px;
+      transition: transform 0.5s;
+      transform: scale(2);
+    }
+  }
+  .button-themes {
+    font-size: 5rem;
+    height: 9rem;
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+  .on svg {
+    transform: rotateX(180deg) translateY(-4px) scale(2);
+  }
+  /*//////////////////////// MAIN ///////////////////*/
+  main {
+    li a {
+      font-size: 5rem;
+      height: 10rem;
+      border-radius: 50px;
+    }
+    svg {
+      transform: scale(2.5) translateY(-4px);
+      width: 30px;
+    }
+    .email {
+      transform: scale(2.5) translateY(-5px);
+    }
+  }
+  /*//////////////////////// FOOTER ///////////////////*/
+  footer {
+    font-size: 3rem;
+    svg {
+      width: 50px;
+      transform: scale(2) translateY(6px);
+    }
+  } 
+}
